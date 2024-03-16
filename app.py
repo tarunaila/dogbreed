@@ -6,13 +6,6 @@ from tensorflow.keras.optimizers import Adam
 import numpy as np
 import os
 from werkzeug.utils import secure_filename
-import pkg_resources
-
-def print_package_versions():
-    print("Package versions:")
-    installed_packages = pkg_resources.working_set
-    for package in installed_packages:
-        print(f"{package.key}=={package.version}")
 
 app = Flask(__name__, template_folder='./templates')
 
@@ -92,5 +85,4 @@ def predict():
     return render_template('predict.html', error=None)
 
 if __name__ == '__main__':
-    print_package_versions()
     app.run(host='0.0.0.0', port=5000, debug=True)
